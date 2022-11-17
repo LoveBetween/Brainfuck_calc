@@ -49,13 +49,14 @@ DUPLICATE (3cells)
 [->+>+<<] copies c0 to c1 and c2
 
 >--->---<<  reset to c0
->>++++++>++++++++< set to c2
+>>+++++++>+++++++++< set to c2
 
 ########################
-MULTIPLY (5 cells)
+MULTIPLY (5 cells) 
 
 > start at c3 until c3=0
-[< move back to c2
+[
+< move back to c2
 
 [-<+<+>>] duplicate first value c2 to c1 and c0
 
@@ -65,5 +66,5 @@ MULTIPLY (5 cells)
 
 >>> move back to c3
 ]
-<[-]>> clean up number (optional).
-
+<[-]>> clean up number (optional)
+. display result
