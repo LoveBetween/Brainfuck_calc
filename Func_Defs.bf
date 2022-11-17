@@ -5,7 +5,8 @@ NAND (3 cells)
 -- c1 is 0 only if it contained 2 (overflow)
 [>+<[+]] put 1 in c2 if nand (c0 c1)
 
-<reset to c0
+cleanup <
+
 >go to c1
 +++++>++++< set bits in c1 c2
 ########################
@@ -14,14 +15,15 @@ GREATER OR c1 MINUS c2 (4 cells)
 <[<]>] go back to c1 if c2 not null 
 << go to c1 
 
-<reset to c0
+cleanup <
+
 >go to c1
 ++++>++++< set bits in c1 c2
 ########################
 NOT EQUAL or c2 MINUS c1 (3 cells)
 [->-<]>+
 
-<<reset to c0
+cleanup <<
 + set bit in c0
 ########################
 NOT (2 cells) or EQUALS 0
@@ -35,36 +37,35 @@ AND (NOT NAND) (4 cells)
 [>+<[+]]>
 [>-<[-]]>+
 
--<<< reset to c0
+cleanup -<<< 
 ++>+<
 
 ########################
 PLUS (2cells)
 [->+<]>
 
----< reset to c0
+cleanup ---< 
+
 +++
 ########################
 DUPLICATE (3cells)
 [->+>+<<] copies c0 to c1 and c2
 
->--->---<<  reset to c0
->>+++++++>+++++++++< set to c2
+cleanup >--->---<<
 
-########################
-MULTIPLY (5 cells) 
+++++++>++++++++< set to c0 and c1
 
-> start at c3 until c3=0
-[
-< move back to c2
+##########################
+MULTIPLY (4 cells)
 
-[-<+<+>>] duplicate first value c2 to c1 and c0
+[ while c0!=0
 
->-<<[->>>+<<<] add c1 to c4 and decrement c3
+- remove 1 from c0
+> [->+>+<<] duplicate c1 to c2 and c3
+>[-<+>] move c2 to c1
+<< set pointer at c0
 
-<[->>+<<] move to c0 to c2
-
->>> move back to c3
 ]
-<[-]>> clean up number (optional)
-. display result
+>>> . display result
+
+cleanup [-]<<[-]<
