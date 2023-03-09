@@ -1,15 +1,11 @@
-
 #Reads any number of characters from the input stream 
 and puts them in memory from the 3rd cell (uses first 2 cells as buffer) CLEAN POINTER : LAST_CHAR PLUS 1
 >+[>,]<[<]>->[>]
 
 #We need to add all of the characters together
-
 #First transform from ascii to integer
 #Adds the number 24 at the end of the queue( requires 2 empty cells) CLEAN POINTER : RESULT
 ++++[>++<-]>[>+++<-]>
-
-
 #Removes that number twice from all characters CLEAN POINTER : LAST_CHAR
 [
 -<<<
@@ -18,10 +14,18 @@ and puts them in memory from the 3rd cell (uses first 2 cells as buffer) CLEAN P
 <<<
 
 #Get the first digit; multiply it by 10; add the next digit; repeat
-
+multiply first digit by 10
+<
 [-<+>]
-++++++++++
-[<++>-]
+<[
+->++++++++++
+[-<<+>>]<
+]
+add it to second digit
+<
+[->>>+<<<]
+>>>
+repeat for all digits
 
 
 
