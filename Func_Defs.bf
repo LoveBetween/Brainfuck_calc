@@ -32,6 +32,7 @@ NOT (2 cells) or EQUALS 0
 << go to c0
 ++++>++++< set bits in c0 c1
 #######################
+EQUALS (3 cells)
 [->-<]> NAND
 [>-<[-]]>+ NOT
 
